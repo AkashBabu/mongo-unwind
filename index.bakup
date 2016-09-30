@@ -1,0 +1,15 @@
+module.exports = function(obj, params){
+	console.assert(obj.constructor == Object, 'Only objects are allowed');
+	console.assert(obj[params], 'Given params doesnt exist');
+
+	var arr = obj[params];
+	var objArr = [];
+	arr.forEach(item => {
+		var tempObj = Object.create(Object.prototype);	
+		Object.assign(tempObj, obj);
+		tempObj[params] = item;
+		objArr.push(tempObj);		
+	})	
+	
+	return objArr;
+}
