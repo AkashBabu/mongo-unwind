@@ -18,6 +18,7 @@ A Nodejs library for unwinding an array in an object, just like mongodb's $unwin
 ## Usage
 
 ```javascript
+var unwind = require('mongo-unwind');
 var obj = {
     a : 1,
     b : 'name',
