@@ -37,7 +37,6 @@ function getLastObject(obj, keyPath){
 	console.assert(keys[keys.length-1], 'Wrong keyPath');
 	keys.splice(-1);
 	var tempObj = obj;
-	// var tempObj = Object.assign({}, obj);
 	for(var i = 0; i < (keys.length); i++){
 		console.assert(keys[i], 'Wrong keyPath');
 		tempObj = getObj(tempObj, keys[i], false);
@@ -61,10 +60,7 @@ var unwind = function(inObj, keyPath){
 	var objArr = [];
 	var tempObj = {};
 	arr.forEach(item => {	
-		// tempObj = obj;
 		tempObj = JSON.parse(JSON.stringify(inObj));
-		// Object.assign(tempObj, obj);
-		//tempObj[params] = item;
 		setValue(tempObj, keyPath, item);
 		objArr.push(tempObj);		
 	})	
@@ -73,22 +69,3 @@ var unwind = function(inObj, keyPath){
 }
 
 module.exports = unwind;
-
-
-if(require.main == module){
-	var obj = {
-			a : 1,
-			b : 'name',
-			inObj : {
-				arr1 : [1,2],
-				innObj : {
-					arr2 : [5,6]
-				},
-				name : 'akash'
-			}
-		};
-
-		var arr = unwind(obj, 'inObj.arr1');
-
-		console.log(JSON.stringify(arr, undefined, 2));
-}
