@@ -55,7 +55,7 @@ var unwind = function(inObj, keyPath){
 	console.assert(inObj.constructor == Object, 'Only objects are allowed');
 	console.assert(keyPath, 'keyPath not specified');
 
-	var arr = getArray(obj, keyPath);	
+	var arr = getArray(inObj, keyPath);	
 
 	var objArr = [];
 	var tempObj = {};
