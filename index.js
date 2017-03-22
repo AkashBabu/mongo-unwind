@@ -22,13 +22,13 @@ function getObj(obj, key, last){
 function getArray(obj, keyPath){
 	var keys = keyPath.split('.');
 	var tempObj = obj;
-	for(var i = 0; i < (keys.length); i++){
-		console.assert(keys[i], 'Wrong keyPath');
+	keys.forEach(function(key, i) {
+		console.assert(key, 'Wrong keyPath');
 		if(i < (keys.length - 1))
-			tempObj = getObj(tempObj, keys[i], false);
+			tempObj = getObj(tempObj, key, false);
 		else
-			tempObj = getObj(tempObj, keys[i], true);
-	}
+			tempObj = getObj(tempObj, key, true);
+	})
 	return tempObj;
 }
 
@@ -37,10 +37,10 @@ function getLastObject(obj, keyPath){
 	console.assert(keys[keys.length-1], 'Wrong keyPath');
 	keys.splice(-1);
 	var tempObj = obj;
-	for(var i = 0; i < (keys.length); i++){
-		console.assert(keys[i], 'Wrong keyPath');
-		tempObj = getObj(tempObj, keys[i], false);
-	}
+	keys.forEach(function(key) {
+		console.assert(key, 'Wrong keyPath');
+		tempObj = getObj(tempObj, key, false);
+	})
 	return tempObj;
 }
 
@@ -55,16 +55,16 @@ var unwind = function(inObj, keyPath){
 	console.assert(inObj.constructor == Object, 'Only objects are allowed');
 	console.assert(keyPath, 'keyPath not specified');
 
-	var arr = getArray(inObj, keyPath);	
+	var arr = getArray(inObj, keyPath);
 
 	var objArr = [];
 	var tempObj = {};
-	arr.forEach(item => {	
+	arr.forEach(function(item) {
 		tempObj = JSON.parse(JSON.stringify(inObj));
 		setValue(tempObj, keyPath, item);
-		objArr.push(tempObj);		
-	})	
-	
+		objArr.push(tempObj);
+	})
+
 	return objArr;
 }
 
