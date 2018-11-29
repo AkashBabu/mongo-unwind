@@ -19,6 +19,7 @@
     "type": "git",
     "url": "git+https://github.com/AkashBabu/mongo-unwind.git"
   },
+  "engines": {"node": ">=7.0.0"},
   "keywords": [
     "unwind",
     "array",
