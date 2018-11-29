@@ -1,4 +1,4 @@
-# mongo-unwind
+# mongo-unwind [![Build Status](https://travis-ci.com/AkashBabu/mongo-unwind.svg?branch=master)](https://travis-ci.com/AkashBabu/mongo-unwind)
 
 A Nodejs library for unwinding an array in an object, just like mongodb's $unwind function
 
