@@ -108,6 +108,3 @@ console.log(JSON.stringify(unwind(obj, 'inObj.arr1')));
 
 ## Contributions
 This is open-source, which makes it obvious for any PRs, but I would request you to add necessary test-cases for the same 
-
-## TODOs
-- [ ] Use `flat` for better efficiency
