@@ -1,6 +1,6 @@
 {
   "name": "mongo-unwind",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "unwind an array in an object just like $unwind in mongodb aggregation query",
   "main": "index.js",
   "scripts": {
